@@ -13,30 +13,4 @@ document.addEventListener("mousemove", e => {
     glow.style.left = e.clientX - 175 + "px";
     glow.style.top = e.clientY - 175 + "px";
 });
-<script>
-  (function () {
-    emailjs.init("YOUR_PUBLIC_KEY");
-  })();
 
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    status.innerText = "Sending...";
-
-    emailjs.sendForm(
-      "service_nwq0yf9",
-      "YOUR_TEMPLATE_ID",
-      this
-    ).then(
-      () => {
-        status.innerText = "Message sent successfully ✅";
-        form.reset();
-      },
-      () => {
-        status.innerText = "Failed to send ❌ Try again.";
-      }
-    );
-  });
-</script>
