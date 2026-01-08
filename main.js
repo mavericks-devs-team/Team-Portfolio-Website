@@ -26,7 +26,7 @@ document.addEventListener("mousemove", e => {
     status.innerText = "Sending...";
 
     emailjs.sendForm(
-      "YOUR_SERVICE_ID",
+      "service_nwq0yf9",
       "YOUR_TEMPLATE_ID",
       this
     ).then(
