@@ -194,6 +194,35 @@
         © MAVERICKS — Research • Innovation • Impact
     </footer>
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function () {
+    emailjs.init("YOUR_PUBLIC_KEY");
+  })();
+
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); // ⬅️ THIS LINE STOPS PAGE RELOAD
+
+    status.innerText = "Sending...";
+
+    emailjs.sendForm(
+      "service_nwq0yf9",
+      "YOUR_TEMPLATE_ID",
+      this
+    ).then(
+      () => {
+        status.innerText = "Message sent successfully ✅";
+        form.reset();
+      },
+      (error) => {
+        console.error(error);
+        status.innerText = "Failed to send ❌";
+      }
+    );
+  });
+</script>
 
 </body>
 
